@@ -36,4 +36,16 @@ public class Validation {
 
 		return constraints;
 	}
+
+	protected List<String> validaPessoa(Pessoa pessoa) {
+
+		List<String> constraints = new ArrayList<String>();
+		if (pessoa != null) {
+			return constraints;
+		} else {
+
+		}
+
+		return constraints;
+	}
 }

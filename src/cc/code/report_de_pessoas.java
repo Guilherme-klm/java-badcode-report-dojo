@@ -1,7 +1,7 @@
 package cc.code;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 
 /**
  * Relatório de pessoas
@@ -15,24 +15,17 @@ public class report_de_pessoas {
 	
 	/**
 	 * imprime a lista de pessoas
-	 * @param paramL
+	 * @param pessoa
 	 */
-	public static void print_e_vai(Vector paramL){
-		
-		for (int i = 0; i < paramL.size(); i++) {
-			
-			Pessoa p = (Pessoa) paramL.get(i);
-			Validation validador = new Validation();
-			List<String> erro = validador.validaPessoa(p);
-			
-			if(!erro.isEmpty())
-				continue;
-			
-		    _s += ", " + p.name;			
+	public static String impressaoDaPessoa(Pessoa pessoa) {
+
+		Validation validador = new Validation();
+		if (validador.validaPessoa(pessoa) != null) {
+			return "Nome: " + pessoa.getName() + "Fone: " + pessoa.getTelefonesCelulares() + " CPF: " + pessoa.getCpf();
+		} else {
+			throw new RuntimeException("Alguma dado foi inserido como nulo, tente novamente!");
 		}
 
-		_s = _s.substring(2); 
-		System.out.print(_s);
 	}
 	
 	/**
@@ -40,7 +33,6 @@ public class report_de_pessoas {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Vector v = new Vector();
 		
 		Pessoa p = new Pessoa();
 		p.name = "Fulano";
@@ -48,9 +40,8 @@ public class report_de_pessoas {
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
 		pessoaTelefonesFixos.add("8765343");
 		p.telefonesCelulares = pessoaTelefonesFixos;
-		v.add(p);
-		
-		print_e_vai(v);
+
+		impressaoDaPessoa(p);
 		
 	}
 
@@ -62,4 +53,44 @@ public class report_de_pessoas {
 	int idade;
 	List<String> telefonesFixos;
 	List<String> telefonesCelulares;
-}
+
+	 public String getName() {
+		 return name;
+	 }
+
+	 public void setName(String name) {
+		 this.name = name;
+	 }
+
+	 public String getCpf() {
+		 return cpf;
+	 }
+
+	 public void setCpf(String cpf) {
+		 this.cpf = cpf;
+	 }
+
+	 public int getIdade() {
+		 return idade;
+	 }
+
+	 public void setIdade(int idade) {
+		 this.idade = idade;
+	 }
+
+	 public List<String> getTelefonesFixos() {
+		 return telefonesFixos;
+	 }
+
+	 public void setTelefonesFixos(List<String> telefonesFixos) {
+		 this.telefonesFixos = telefonesFixos;
+	 }
+
+	 public List<String> getTelefonesCelulares() {
+		 return telefonesCelulares;
+	 }
+
+	 public void setTelefonesCelulares(List<String> telefonesCelulares) {
+		 this.telefonesCelulares = telefonesCelulares;
+	 }
+ }
