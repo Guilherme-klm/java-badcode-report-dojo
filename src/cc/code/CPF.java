@@ -57,6 +57,5 @@ public class CPF {
    public static void main(String[] args) {
       System.out.println( CPF("04624193806") );
    }
-   
 
 }
