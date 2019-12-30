@@ -14,7 +14,7 @@ public class CPF {
 
       for (int nCount = 1; nCount < strCpf.length() -1; nCount++)
       {
-         digitoCPF = Integer.valueOf (strCpf.substring(nCount -1, nCount)).intValue();
+         digitoCPF = Integer.parseInt(strCpf.substring(nCount -1, nCount));
 
          //multiplique a ultima casa por 2 a seguinte por 3 a seguinte por 4 e assim por diante.
          d1 = d1 + ( 11 - nCount ) * digitoCPF;
@@ -44,10 +44,10 @@ public class CPF {
          digito2 = 11 - resto;
 
       //Digito verificador do CPF que esta sendo validado.
-      String nDigVerific = strCpf.substring (strCpf.length()-2, strCpf.length());
+      String nDigVerific = strCpf.substring (strCpf.length()-2);
 
       //Concatenando o primeiro resto com o segundo.
-      nDigResult = String.valueOf(digito1) + String.valueOf(digito2);
+      nDigResult = String.valueOf(digito1) + (digito2);
 
       //comparar o digito verificador do cpf com o primeiro resto + o segundo resto.
       return nDigVerific.equals(nDigResult);

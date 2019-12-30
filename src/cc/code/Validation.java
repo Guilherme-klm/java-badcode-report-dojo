@@ -17,7 +17,7 @@ public class Validation {
 		    constraints.add("CPF inválido");
         }
 
-		for (String telefone : pessoa.telefonesFixos) {
+		for (String telefone : pessoa.telefonesCelulares) {
 			if (telefone.isEmpty() || telefone.length() < 10) {
 				constraints.add("Erro - Telefone inválido");
 			}
@@ -27,10 +27,10 @@ public class Validation {
 
 
     public boolean validarCPF (String cpf) {
-        if (!CPF(cpf)) {
-            return false;
+        if (CPF(cpf)) {
+            return true;
         }
-        return true;
+        return false;
     }
 }
 

@@ -1,6 +1,7 @@
 package cc.code;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,13 +36,15 @@ public class report_de_pessoas {
 	public static void main(String[] args) {
 		
 		Pessoa p = new Pessoa();
-		p.name = "Fulano";
-		p.cpf = "54229236930";
+		p.setName("Fulano");
+		p.setCpf("54229236930");
 		p.setIdade(10);
 
-		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
-		pessoaTelefonesFixos.add("1876534331");
-		p.telefonesCelulares = pessoaTelefonesFixos;
+		List<String> pessoaTelefonesCelulares = Arrays.asList("10876534331");
+		p.setTelefonesFixos(pessoaTelefonesCelulares);
+
+		List<String> pessoaTelefonesFixos = Arrays.asList("95039412301");
+		p.setTelefonesCelulares(pessoaTelefonesFixos);
 
 		ArrayList<Pessoa> pessoas = new ArrayList<>();
 		pessoas.add(p);
