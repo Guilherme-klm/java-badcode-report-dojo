@@ -13,7 +13,7 @@ public class Validation {
 			constraints.add("Algum campo está nulo, tente novamente!");
 		}
 
-		if (validarCPF(pessoa.getCpf()) == false) {
+		if (!validarCPF(pessoa.getCpf())) {
 		    constraints.add("CPF inválido");
         }
 

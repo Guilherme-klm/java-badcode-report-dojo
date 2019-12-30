@@ -9,23 +9,23 @@ import java.util.List;
  */
 public class report_de_pessoas {
 	/**
-	 * a string para somar todos os nomes na lista 
-	 */
-	static String _s;
-	
-	/**
 	 * imprime a lista de pessoas
 	 * @param pessoa
 	 */
-	public static String impressaoDaPessoa(Pessoa pessoa) {
+	public static void impressaoDaPessoas(List<Pessoa> pessoa) {
 
-		Validation validador = new Validation();
-		if (validador.validaPessoa(pessoa) != null) {
-			return "Nome: " + pessoa.getName() + "Fone: " + pessoa.getTelefonesCelulares() + " CPF: " + pessoa.getCpf();
-		} else {
-			throw new RuntimeException("Alguma dado foi inserido como nulo, tente novamente!");
+		for (int i = 0; i < pessoa.size(); i++) {
+			Pessoa p = pessoa.get(i);
+			Validation validador = new Validation();
+			List<String> erros = validador.validaPessoa(p);
+			if (erros == null) {
+				System.out.println("Nome: " + p.getName());
+				System.out.println("Fone: " + p.getTelefonesCelulares());
+				System.out.println("CPF: " + p.getCpf());
+			} else {
+				System.out.println(erros);
+			}
 		}
-
 	}
 	
 	/**
@@ -36,12 +36,16 @@ public class report_de_pessoas {
 		
 		Pessoa p = new Pessoa();
 		p.name = "Fulano";
-		p.cpf = "0033435457";
+		p.cpf = "54229236930";
+		p.setIdade(10);
+
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
-		pessoaTelefonesFixos.add("8765343");
+		pessoaTelefonesFixos.add("1876534331");
 		p.telefonesCelulares = pessoaTelefonesFixos;
 
-		impressaoDaPessoa(p);
+		ArrayList<Pessoa> pessoas = new ArrayList<>();
+		pessoas.add(p);
+		impressaoDaPessoas(pessoas);
 		
 	}
 
